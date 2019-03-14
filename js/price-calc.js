@@ -1,3 +1,40 @@
+// initPrice - alapdíj: tervezés, riggelés, setup, üzletkötés, működési költségek ($-ban)
+var initPrice = {
+  // 2D Animation
+  cutOut        : 500,
+  vector2D      : 800,
+  traditional2D : 300,
+
+  // Motion Graphics
+  abstractMotion    : 1000,
+  complex3DMotion   : 1500,
+  realistic3DMotion : 2000,
+
+  // 3D Aniamtion
+  visualisation3D       : 1300,
+  cartoon3D             : 2500,
+  realistic3dCharacter  : 3500
+}
+
+// pricePerSec: animációs költségek + render + composit ($-ban)
+var pricePerSec = {
+  // 2D Animation
+  cutOut        : 2.5,
+  vector2D      : 3.5,
+  traditional2D : 20.0,
+
+  // Motion Graphics
+  abstractMotion    : 3.2,
+  complex3DMotion   : 5.5,
+  realistic3DMotion : 8.0,
+
+  // 3D Aniamtion
+  visualisation3D       : 2,
+  cartoon3D             : 7.2,
+  realistic3dCharacter  : 10
+}
+
+// init
 inactivateMediumCards();
 inactivateAnimStyleCards();
 hideAnimStyleBlocks();
@@ -8,6 +45,12 @@ function chooseMedium(medium,style) {
   document.getElementById(medium).style.filter = "grayscale(0%)";
   hideAnimStyleBlocks();
   document.getElementById(style).style.display = "block";
+}
+
+// stílus kiválasztása
+function chooseAnimStyle(style) {
+  inactivateAnimStyleCards();
+  document.getElementById(style).style.filter = "grayscale(0%)";
 }
 
 // animStyle blokkok eltüntetése

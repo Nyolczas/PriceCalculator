@@ -43,10 +43,10 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img onclick="chooseMedium('2D_Anim','2D_styles')" class="cardMedium" id="2D_Anim" src="img/D2_anim.jpg"
-                                    alt="2D Animation">
+                                <img onclick="chooseMedium('3D_Anim','3D_styles')" class="cardMedium" id="3D_Anim" src="img/D3_anim.jpg"
+                                    alt="3D Animation">
                                 <div class="card-body">
-                                    <p class="card-text">2D Animation</p>
+                                    <p class="card-text">3D Animation & VFX</p>
                                 </div>
                             </div>
                         </div>
@@ -61,10 +61,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img onclick="chooseMedium('3D_Anim','3D_styles')" class="cardMedium" id="3D_Anim" src="img/D3_anim.jpg"
-                                    alt="3D Animation">
+                                <img onclick="chooseMedium('2D_Anim','2D_styles')" class="cardMedium" id="2D_Anim" src="img/D2_anim.jpg"
+                                    alt="2D Animation">
                                 <div class="card-body">
-                                    <p class="card-text">3D Animation & VFX</p>
+                                    <p class="card-text">2D Animation</p>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D2_1.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('cutOut')" id="cutOut" class="cardAnimStyle" src="img/D2_1.jpg" alt="Cut out style">
                                     <div class="card-body">
                                         <p class="card-text">Cut out style</p>
                                     </div>
@@ -84,7 +84,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D2_2.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('vector2D')" id="vector2D" class="cardAnimStyle" src="img/D2_2.jpg" alt="Rigged, vector based animation">
                                     <div class="card-body">
                                         <p class="card-text">Rigged, vector based animation</p>
                                     </div>
@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D2_3.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('traditional2D')" id="traditional2D" class="cardAnimStyle" src="img/D2_3.jpg" alt="Traditional animation style">
                                     <div class="card-body">
                                         <p class="card-text">Traditional animation style</p>
                                     </div>
@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/M_1.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('abstractMotion')" id="abstractMotion" class="cardAnimStyle" src="img/M_1.jpg" alt="Abstract 2D - 3D">
                                     <div class="card-body">
                                         <p class="card-text">Abstract 2D - 3D</p>
                                     </div>
@@ -113,7 +113,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/M_2.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('complex3DMotion')" id="complex3DMotion" class="cardAnimStyle" src="img/M_2.jpg" alt="Complex 3D Scenes">
                                     <div class="card-body">
                                         <p class="card-text">Complex 3D Scenes</p>
                                     </div>
@@ -121,7 +121,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/M_3.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('realistic3DMotion')" id="realistic3DMotion" class="cardAnimStyle" src="img/M_3.jpg" alt="Realistic 3D">
                                     <div class="card-body">
                                         <p class="card-text">Realistic 3D</p>
                                     </div>
@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D3_1.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('visualisation3D')" id="visualisation3D" class="cardAnimStyle" src="img/D3_1.jpg" alt="3D Visualisation">
                                     <div class="card-body">
                                         <p class="card-text">3D Visualisation</p>
                                     </div>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D3_2.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('cartoon3D')" id="cartoon3D" class="cardAnimStyle" src="img/D3_2.jpg" alt="3D Cartoon">
                                     <div class="card-body">
                                         <p class="card-text">3D Cartoon</p>
                                     </div>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="cardAnimStyle" src="img/D3_3.jpg" alt="3D Animation">
+                                    <img onclick="chooseAnimStyle('realistic3dCharacter')" id="realistic3dCharacter" class="cardAnimStyle" src="img/D3_3.jpg" alt="3D Realistic">
                                     <div class="card-body">
                                         <p class="card-text">Realistic Character Animation</p>
                                     </div>
@@ -177,7 +177,7 @@
                             <h5 class="quality" id="Premium">Premium Quality</h5>
                         </div>
                         <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="50" class="slider" id="qualityR">
+                            <input type="range" min="100" max="300" value="200" class="slider" id="qualityR">
                         </div>
                     </div>
                 </div>
