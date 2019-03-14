@@ -1,9 +1,13 @@
+var price_Initial = 0;
+var price_Seconds = 0;
 // ================================ sliderek ================================
 // duration slider
 var formaTime = new Date;
 var durSlider = document.getElementById("durationR");
+
 var durOutput = document.getElementById("demoDuration");
 durOutput.innerHTML = formaTime.clearTime().addSeconds(durSlider.value).toString('H:mm:ss');
+
 
 durSlider.oninput = function() {
   durOutput.innerHTML = formaTime.clearTime().addSeconds(this.value).toString('H:mm:ss'); 
@@ -14,18 +18,15 @@ durSlider.oninput = function() {
 // quality slider
 var qualSlider = document.getElementById("qualityR");
 var qualOutput = document.getElementById("demoQuality");
-// qualOutput.innerHTML = qualSlider.value;
+ qualOutput.innerHTML = qualSlider.value;
 
 qualSlider.oninput = function() { 
-  // qualOutput.innerHTML = this.value;
+  qualOutput.innerHTML = this.value;
   calculatePrice();
 }
 
 // ================================ logics ================================
-var calculatedPrices = {
-  init    : 0,
-  seconds : 0
-}
+
 
 
 // initPrice - alapdíj: tervezés, riggelés, setup, üzletkötés, működési költségek ($-ban)
@@ -44,7 +45,7 @@ var initPrice = {
   visualisation3D       : 1300,
   cartoon3D             : 2500,
   realistic3dCharacter  : 3500
-}
+};
 
 // pricePerSec: animációs költségek + render + composit ($-ban)
 var pricePerSec = {
@@ -62,7 +63,8 @@ var pricePerSec = {
   visualisation3D       : 20,
   cartoon3D             : 170,
   realistic3dCharacter  : 250
-}
+};
+
 
 // init
 inactivateMediumCards();
@@ -76,7 +78,7 @@ function chooseMedium(medium,style) {
   hideAnimStyleBlocks();
   document.getElementById(style).style.display = "block";
 
-  document.getElementById("finalPrice").innerHTML = '$XX,XXX';
+  document.getElementById("finalPrice").innerHTML = '<small>Plase choose the animation style</small>';
 }
 
 // stílus kiválasztása / ár meghatározás
@@ -85,13 +87,13 @@ function chooseAnimStyle(style) {
     inactivateAnimStyleCards();
     document.getElementById(style).style.filter = "grayscale(0%)";
 
-    calculatedPrices.init = initPrice[style];
-    calculatedPrices.seconds = pricePerSec[style];
+    price_Initial = initPrice[style];
+    price_Seconds = pricePerSec[style];
+    document.getElementById("secondPrice").innerHTML = price_Seconds;
+    
     calculatePrice();
   }
-
-
-
+  console.log('price_Seconds' + price_Seconds);
 // animStyle blokkok eltüntetése
 function hideAnimStyleBlocks() {
   var styleBlocks = document.getElementsByClassName('animStyles');
@@ -121,9 +123,14 @@ function inactivateAnimStyleCards() {
 
 // =============================  ár kalkuláció
 function calculatePrice() {
-  var finalPrice = (calculatedPrices.seconds * durSlider.value / 100 * qualSlider.value) + calculatedPrices.init;
-  // console.log('$' + formatMoney(finalPrice));
-  document.getElementById("finalPrice").innerHTML = '$' + formatMoney(finalPrice);
+  price_Seconds = document.getElementById("secondPrice").innerHTML; 
+  var finalPrice = (price_Seconds * durSlider.value / 100 * qualSlider.value) + price_Initial;
+   console.log('second: ' + document.getElementById("secondPrice").innerHTML);
+  if(price_Seconds == 0 || price_Initial == 0) {
+    document.getElementById("finalPrice").innerHTML = '<small>Plase choose the animation style</small>';
+  } else {
+    document.getElementById("finalPrice").innerHTML = '$' + formatMoney(finalPrice);
+  }
 }
 
 //  format Dollar
