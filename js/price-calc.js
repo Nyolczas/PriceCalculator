@@ -14,10 +14,10 @@ durSlider.oninput = function() {
 // quality slider
 var qualSlider = document.getElementById("qualityR");
 var qualOutput = document.getElementById("demoQuality");
-qualOutput.innerHTML = qualSlider.value;
+// qualOutput.innerHTML = qualSlider.value;
 
 qualSlider.oninput = function() { 
-  qualOutput.innerHTML = this.value;
+  // qualOutput.innerHTML = this.value;
   calculatePrice();
 }
 
@@ -49,19 +49,19 @@ var initPrice = {
 // pricePerSec: animációs költségek + render + composit ($-ban)
 var pricePerSec = {
   // 2D Animation
-  cutOut        : 2.5,
-  vector2D      : 3.5,
-  traditional2D : 20.0,
+  cutOut        : 25,
+  vector2D      : 35,
+  traditional2D : 210,
 
   // Motion Graphics
-  abstractMotion    : 3.2,
-  complex3DMotion   : 5.5,
-  realistic3DMotion : 8.0,
+  abstractMotion    : 32,
+  complex3DMotion   : 55,
+  realistic3DMotion : 80,
 
   // 3D Aniamtion
-  visualisation3D       : 2,
-  cartoon3D             : 7.2,
-  realistic3dCharacter  : 10
+  visualisation3D       : 20,
+  cartoon3D             : 170,
+  realistic3dCharacter  : 250
 }
 
 // init
@@ -75,6 +75,8 @@ function chooseMedium(medium,style) {
   document.getElementById(medium).style.filter = "grayscale(0%)";
   hideAnimStyleBlocks();
   document.getElementById(style).style.display = "block";
+
+  document.getElementById("finalPrice").innerHTML = '$XX,XXX';
 }
 
 // stílus kiválasztása / ár meghatározás
@@ -117,10 +119,26 @@ function inactivateAnimStyleCards() {
   }
 }
 
-// ár kalkuláció
+// =============================  ár kalkuláció
 function calculatePrice() {
-  // console.log('init price: $' + calculatedPrices.init);
-  // console.log('price / seconds: $' + calculatedPrices.seconds);
-  // console.log('duration: ' + durSlider.value + ' sec');
-  // console.log('quality: ' + qualSlider.value + ' %');
+  var finalPrice = (calculatedPrices.seconds * durSlider.value / 100 * qualSlider.value) + calculatedPrices.init;
+  // console.log('$' + formatMoney(finalPrice));
+  document.getElementById("finalPrice").innerHTML = '$' + formatMoney(finalPrice);
 }
+
+//  format Dollar
+function formatMoney(amount, decimalCount = 0, decimal = ".", thousands = ",") {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+    const negativeSign = amount < 0 ? "-" : "";
+
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+
+    return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+  } catch (e) {
+    //console.log(e)
+  }
+};
