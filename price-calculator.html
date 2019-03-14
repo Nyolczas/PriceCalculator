@@ -43,7 +43,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img src="img/D2_anim.jpg" alt="3D Animation">
+                                <img onclick="chooseMedium('2D_Anim','2D_styles')" class="cardMedium" id="2D_Anim" src="img/D2_anim.jpg"
+                                    alt="2D Animation">
                                 <div class="card-body">
                                     <p class="card-text">2D Animation</p>
                                 </div>
@@ -51,7 +52,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img src="img/Motion.jpg" alt="3D Animation">
+                                <img onclick="chooseMedium('MotionGraphics','MG_styles')" class="cardMedium" id="MotionGraphics"
+                                    src="img/Motion.jpg" alt="Motion Graphics">
                                 <div class="card-body">
                                     <p class="card-text">Motion Graphics</p>
                                 </div>
@@ -59,7 +61,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img src="img/D3_anim.jpg" alt="3D Animation">
+                                <img onclick="chooseMedium('3D_Anim','3D_styles')" class="cardMedium" id="3D_Anim" src="img/D3_anim.jpg"
+                                    alt="3D Animation">
                                 <div class="card-body">
                                     <p class="card-text">3D Animation & VFX</p>
                                 </div>
@@ -68,12 +71,12 @@
                     </div>
 
                     <!-- ========================================= animation styles ========================================= -->
-                    <div class="styles" id="2D_styles">
+                    <div class="animStyles" id="2D_styles">
                         <h2 class="jumbotron-heading">2. Choose the 2D animation style</h2>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img src="img/D2_1.jpg" alt="3D Animation">
+                                    <img class="cardAnimStyle" src="img/D2_1.jpg" alt="3D Animation">
                                     <div class="card-body">
                                         <p class="card-text">Cut out style</p>
                                     </div>
@@ -81,7 +84,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img src="img/D2_2.jpg" alt="3D Animation">
+                                    <img class="cardAnimStyle" src="img/D2_2.jpg" alt="3D Animation">
                                     <div class="card-body">
                                         <p class="card-text">Rigged, vector based animation</p>
                                     </div>
@@ -89,97 +92,92 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card mb-4 shadow-sm">
-                                    <img src="img/D2_3.jpg" alt="3D Animation">
+                                    <img class="cardAnimStyle" src="img/D2_3.jpg" alt="3D Animation">
                                     <div class="card-body">
                                         <p class="card-text">Traditional animation style</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="styles" id="MG_styles">
-                            <h2 class="jumbotron-heading">2. Choose the Motion Graphics style</h2>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card mb-4 shadow-sm">
-                                        <img src="img/M_1.jpg" alt="3D Animation">
-                                        <div class="card-body">
-                                            <p class="card-text">Abstract 2D - 3D</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card mb-4 shadow-sm">
-                                        <img src="img/M_2.jpg" alt="3D Animation">
-                                        <div class="card-body">
-                                            <p class="card-text">Complex 3D Scenes</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card mb-4 shadow-sm">
-                                        <img src="img/M_3.jpg" alt="3D Animation">
-                                        <div class="card-body">
-                                            <p class="card-text">Realistic 3D</p>
-                                        </div>
+                    </div>
+                    <div class="animStyles" id="MG_styles">
+                        <h2 class="jumbotron-heading">2. Choose the Motion Graphics style</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/M_1.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">Abstract 2D - 3D</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="styles" id="3D_styles">
-                                <h2 class="jumbotron-heading">2. Choose the 3D animation style</h2>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="card mb-4 shadow-sm">
-                                            <img src="img/D3_1.jpg" alt="3D Animation">
-                                            <div class="card-body">
-                                                <p class="card-text">3D Visualisation</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mb-4 shadow-sm">
-                                            <img src="img/D3_2.jpg" alt="3D Animation">
-                                            <div class="card-body">
-                                                <p class="card-text">3D Cartoon</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mb-4 shadow-sm">
-                                            <img src="img/D3_3.jpg" alt="3D Animation">
-                                            <div class="card-body">
-                                                <p class="card-text">Realistic Character Animation</p>
-                                            </div>
-                                        </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/M_2.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">Complex 3D Scenes</p>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- ========================================= duration ========================================= -->
-                            <div class="rangecontainer">
-                                <h2 class="jumbotron-heading">3. Duration: <span id="demoDuration"></span>  </h2>
-                                <div class="slidecontainer">
-                                    <input type="range" min="1" max="10800" value="50" class="slider" id="durationR">
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/M_3.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">Realistic 3D</p>
+                                    </div>
                                 </div>
                             </div>
-
-
-                            <!-- ========================================= quality ========================================= -->
-                            <div class="rangecontainer">
-                                <h2 class="jumbotron-heading">4. Production Quality: <span id="demoQuality"></span>
-                                </h2>
-                                <div class="quality-container">
-                                    <h5 class="quality" id="Acceptable">Acceptable Quality</h5>
-                                    <h5 class="quality" id="Appropriate">Appropriate Quality</h5>
-                                    <h5 class="quality" id="Premium">Premium Quality</h5>
-                                </div>
-                                <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="qualityR">
+                        </div>
+                    </div>
+                    <div class="animStyles" id="3D_styles">
+                        <h2 class="jumbotron-heading">2. Choose the 3D animation style</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/D3_1.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">3D Visualisation</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/D3_2.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">3D Cartoon</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="cardAnimStyle" src="img/D3_3.jpg" alt="3D Animation">
+                                    <div class="card-body">
+                                        <p class="card-text">Realistic Character Animation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========================================= duration ========================================= -->
+                    <div class="rangecontainer">
+                        <h2 class="jumbotron-heading">3. Duration: <span id="demoDuration"></span> </h2>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="10800" value="300" class="slider" id="durationR">
+                        </div>
+                    </div>
 
 
-
-
+                    <!-- ========================================= quality ========================================= -->
+                    <div class="rangecontainer">
+                        <h2 class="jumbotron-heading">4. Production Quality: <span id="demoQuality"></span>
+                        </h2>
+                        <div class="quality-container">
+                            <h5 class="quality" id="Acceptable">Acceptable Quality</h5>
+                            <h5 class="quality" id="Appropriate">Appropriate Quality</h5>
+                            <h5 class="quality" id="Premium">Premium Quality</h5>
+                        </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="qualityR">
                         </div>
                     </div>
                 </div>
@@ -189,9 +187,10 @@
         <section class="jumbotron text-center">
             <div class="container">
                 <h1 class="jumbotron-heading price">$XX,XXX</h1>
-                <p class="lead text-muted"> This price is to be used as a rough guide only and not as a definitive estimate.
-                        Voice over talent, music and sound effects can significantly increase overall costs.
-                        Costs vary greatly depending on the number of characters, environments and complexity.
+                <p class="lead text-muted"> This price is to be used as a rough guide only and not as a definitive
+                    estimate.
+                    Voice over talent, music and sound effects can significantly increase overall costs.
+                    Costs vary greatly depending on the number of characters, environments and complexity.
                 </p>
             </div>
         </section>
