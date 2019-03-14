@@ -1,3 +1,33 @@
+// ================================ sliderek ================================
+// duration slider
+var formaTime = new Date;
+var durSlider = document.getElementById("durationR");
+var durOutput = document.getElementById("demoDuration");
+durOutput.innerHTML = formaTime.clearTime().addSeconds(durSlider.value).toString('H:mm:ss');
+
+durSlider.oninput = function() {
+  durOutput.innerHTML = formaTime.clearTime().addSeconds(this.value).toString('H:mm:ss'); 
+  calculatePrice();
+}
+
+
+// quality slider
+var qualSlider = document.getElementById("qualityR");
+var qualOutput = document.getElementById("demoQuality");
+qualOutput.innerHTML = qualSlider.value;
+
+qualSlider.oninput = function() { 
+  qualOutput.innerHTML = this.value;
+  calculatePrice();
+}
+
+// ================================ logics ================================
+var calculatedPrices = {
+  init    : 0,
+  seconds : 0
+}
+
+
 // initPrice - alapdíj: tervezés, riggelés, setup, üzletkötés, működési költségek ($-ban)
 var initPrice = {
   // 2D Animation
@@ -47,11 +77,18 @@ function chooseMedium(medium,style) {
   document.getElementById(style).style.display = "block";
 }
 
-// stílus kiválasztása
+// stílus kiválasztása / ár meghatározás
+
 function chooseAnimStyle(style) {
-  inactivateAnimStyleCards();
-  document.getElementById(style).style.filter = "grayscale(0%)";
-}
+    inactivateAnimStyleCards();
+    document.getElementById(style).style.filter = "grayscale(0%)";
+
+    calculatedPrices.init = initPrice[style];
+    calculatedPrices.seconds = pricePerSec[style];
+    calculatePrice();
+  }
+
+
 
 // animStyle blokkok eltüntetése
 function hideAnimStyleBlocks() {
@@ -79,22 +116,11 @@ function inactivateAnimStyleCards() {
     cards[i].style.filter = "grayscale(100%)";
   }
 }
-// ================================ sliderek ================================
-// duration slider
-var formaTime = new Date;
-var durSlider = document.getElementById("durationR");
-var durOutput = document.getElementById("demoDuration");
-durOutput.innerHTML = formaTime.clearTime().addSeconds(durSlider.value).toString('H:mm:ss');
 
-durSlider.oninput = function() {
-  durOutput.innerHTML = formaTime.clearTime().addSeconds(this.value).toString('H:mm:ss');
-}
-
-// quality slider
-var qualSlider = document.getElementById("qualityR");
-var qualOutput = document.getElementById("demoQuality");
-qualOutput.innerHTML = qualSlider.value;
-
-qualSlider.oninput = function() { 
-  qualOutput.innerHTML = this.value;
+// ár kalkuláció
+function calculatePrice() {
+  // console.log('init price: $' + calculatedPrices.init);
+  // console.log('price / seconds: $' + calculatedPrices.seconds);
+  // console.log('duration: ' + durSlider.value + ' sec');
+  // console.log('quality: ' + qualSlider.value + ' %');
 }
